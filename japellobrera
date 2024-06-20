@@ -1,0 +1,43 @@
+// WaterMeterMonitoringSystem.java
+
+import java.util.Random;
+
+// Sample WaterMeter class to simulate water meter readings
+class WaterMeter {
+    private int currentReading;
+
+    public WaterMeter() {
+        this.currentReading = 0;
+    }
+
+    // Simulates reading the water meter
+    public int getCurrentReading() {
+        // Simulate random increment in water usage
+        Random random = new Random();
+        int increment = random.nextInt(10); // Random increment between 0 and 9
+        this.currentReading += increment;
+        return this.currentReading;
+    }
+}
+
+// Main class to run the water meter monitoring system
+public class WaterMeterMonitoringSystem {
+
+    public static void main(String[] args) {
+        WaterMeter waterMeter = new WaterMeter();
+
+        for (int i = 0; i < 10; i++) { // Simulate readings over 10 iterations
+            int currentReading = waterMeter.getCurrentReading();
+            System.out.println("Current water meter reading: " + currentReading);
+
+            // Add your logic here to process the water meter data (e.g., store in database, analyze, etc.)
+            // For simplicity, we are just printing the reading.
+
+            try {
+                Thread.sleep(2000); // Sleep for 2000 milliseconds (2 seconds)
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
